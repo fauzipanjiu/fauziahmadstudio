@@ -1,0 +1,901 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ahmad Fauzi | Desainer Grafis Spesialis Carousel Instagram</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        dark: 'rgb(var(--bg-main) / <alpha-value>)',
+                        card: 'rgb(var(--card-bg) / <alpha-value>)',
+                        textMuted: 'rgb(var(--text-muted) / <alpha-value>)',
+                        white: 'rgb(var(--text-main) / <alpha-value>)',
+                        black: 'rgb(var(--bg-main) / <alpha-value>)',
+                    },
+                    keyframes: {
+                        fade1: {
+                            '0%, 28%': { opacity: '1' },
+                            '33%, 95%': { opacity: '0' },
+                            '100%': { opacity: '1' },
+                        },
+                        fade2: {
+                            '0%, 28%': { opacity: '0' },
+                            '33%, 61%': { opacity: '1' },
+                            '66%, 100%': { opacity: '0' },
+                        },
+                        fade3: {
+                            '0%, 61%': { opacity: '0' },
+                            '66%, 95%': { opacity: '1' },
+                            '100%': { opacity: '0' },
+                        },
+                        fade4_1: {
+                            '0%, 20%': { opacity: '1' },
+                            '25%, 95%': { opacity: '0' },
+                            '100%': { opacity: '1' },
+                        },
+                        fade4_2: {
+                            '0%, 20%': { opacity: '0' },
+                            '25%, 45%': { opacity: '1' },
+                            '50%, 100%': { opacity: '0' },
+                        },
+                        fade4_3: {
+                            '0%, 45%': { opacity: '0' },
+                            '50%, 70%': { opacity: '1' },
+                            '75%, 100%': { opacity: '0' },
+                        },
+                        fade4_4: {
+                            '0%, 70%': { opacity: '0' },
+                            '75%, 95%': { opacity: '1' },
+                            '100%': { opacity: '0' },
+                        }
+                    },
+                    animation: {
+                        'carousel-1': 'fade1 9s infinite',
+                        'carousel-2': 'fade2 9s infinite',
+                        'carousel-3': 'fade3 9s infinite',
+                        'carousel4-1': 'fade4_1 12s infinite',
+                        'carousel4-2': 'fade4_2 12s infinite',
+                        'carousel4-3': 'fade4_3 12s infinite',
+                        'carousel4-4': 'fade4_4 12s infinite',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        :root {
+            --bg-main: 240 242 245;
+            --text-main: 18 18 18;
+            --text-muted: 85 85 85;
+            --card-bg: 255 255 255;
+            --card-border: 0 0 0;
+            --invert-logo: 0;
+            --logo-silhouette: drop-shadow(0 0 2px rgba(0,0,0,0.1));
+        }
+        .dark {
+            --bg-main: 15 15 15;
+            --text-main: 255 255 255;
+            --text-muted: 188 188 188;
+            --card-bg: 26 26 26;
+            --card-border: 255 255 255;
+            --invert-logo: 1;
+            --logo-silhouette: drop-shadow(0 0 5px rgba(255,255,255,0.8));
+        }
+        body { 
+            background-color: rgb(var(--bg-main)); 
+            color: rgb(var(--text-muted)); 
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .gradient-text {
+            background: linear-gradient(135deg, #38bdf8, #c084fc, #f472b6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .gradient-bg {
+            background: linear-gradient(135deg, #38bdf8, #c084fc);
+        }
+        .bento-card {
+            background-color: rgb(var(--card-bg));
+            border-radius: 30px;
+            border: 1px solid rgb(var(--card-border) / 0.05);
+            transition: all 0.3s ease;
+        }
+        .bento-card:hover {
+            border-color: rgb(var(--card-border) / 0.15);
+            transform: translateY(-2px);
+        }
+        
+        /* Marquee Animation */
+        .marquee-wrapper {
+            display: flex;
+            overflow: hidden;
+            white-space: nowrap;
+            width: 100%;
+        }
+        .marquee-content {
+            display: flex;
+            animation: marquee 15s linear infinite;
+        }
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        /* Print Styles */
+        @media print {
+            body > nav,
+            body > main,
+            body > footer,
+            body > script {
+                display: none !important;
+            }
+            body {
+                background-color: #ffffff !important;
+                color: #000000 !important;
+                -webkit-print-color-adjust: exact !important;
+                color-adjust: exact !important;
+                print-color-adjust: exact !important;
+                height: auto !important;
+                min-height: 0 !important;
+                margin: 0 !important;
+                padding: 0 !important;
+            }
+            .pricing-container {
+                display: block !important;
+                width: 100% !important;
+                margin: 0 !important;
+                padding: 0 !important;
+            }
+            #pricing {
+                border: none !important;
+                margin: 0 !important;
+                padding: 0 !important;
+                box-shadow: none !important;
+                background: none !important;
+            }
+            #pricing-ui {
+                display: none !important;
+            }
+            #print-catalog {
+                display: block !important;
+            }
+            @page {
+                margin: 1.5cm;
+                size: A4;
+            }
+        }
+    </style>
+</head>
+<body class="min-h-screen p-4 md:p-8 lg:p-12 selection:bg-blue-500 selection:text-white">
+
+    <!-- Navigation -->
+    <nav class="max-w-7xl mx-auto flex flex-row justify-between items-center gap-2 mb-8 md:mb-12">
+        <a href="#" class="flex items-center gap-2 group relative z-10">
+            <!-- Brand Logo with Theme Adjustment -->
+            <!-- White silhouette is applied via custom drop-shadow property that adapts to dark/light mode -->
+            <div class="relative flex items-center justify-center transition-all p-1" style="filter: var(--logo-silhouette);">
+                <img src="./assets/logo.png" alt="Stud.. Ahmad Fauzi Logo" class="h-8 md:h-12 object-contain transition-all duration-300" style="filter: invert(var(--invert-logo));" onerror="this.src='https://placehold.co/200x80/000/fff?text=Stud..+AHMAD+FAUZI'">
+            </div>
+        </a>
+        <div class="hidden md:flex gap-8 text-sm font-medium text-textMuted uppercase tracking-widest">
+            <a href="#" class="hover:text-white transition" data-i18n="nav_home">Home</a>
+            <a href="#about" class="hover:text-white transition" data-i18n="nav_about">About</a>
+            <a href="#projects" class="hover:text-white transition" data-i18n="nav_works">Works</a>
+            <a href="#services" class="hover:text-white transition" data-i18n="nav_services">Services</a>
+        </div>
+        <div class="flex items-center gap-2 md:gap-4">
+            <!-- Language Toggle -->
+            <button id="lang-toggle" onclick="toggleLanguage()" class="text-[10px] md:text-xs font-bold text-textMuted hover:text-white transition uppercase w-7 h-7 md:w-8 md:h-8 flex items-center justify-center border border-white/10 rounded-full bg-white/5">
+                ID
+            </button>
+            <!-- Theme Toggle -->
+            <button id="theme-toggle" onclick="toggleTheme()" class="text-[10px] md:text-xs text-textMuted hover:text-white transition w-7 h-7 md:w-8 md:h-8 flex items-center justify-center border border-white/10 rounded-full bg-white/5">
+                <i class="fa-solid fa-moon dark-icon hidden"></i>
+                <i class="fa-solid fa-sun light-icon"></i>
+            </button>
+            <a href="#contact" class="bg-white/10 text-white px-4 py-2 md:px-6 md:py-2.5 rounded-full text-[10px] sm:text-xs md:text-sm font-semibold hover:bg-white hover:text-dark transition backdrop-blur-md border border-white/10 whitespace-nowrap" data-i18n="nav_cta">Ngobrol Yuk</a>
+        </div>
+    </nav>
+
+    <!-- Bento Grid -->
+    <main class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 md:auto-rows-[220px] gap-6">
+        
+        <!-- Hero (2x2) -->
+        <div class="bento-card md:col-span-2 md:row-span-2 p-6 md:p-10 flex flex-col justify-between relative overflow-hidden group">
+            <div class="absolute top-0 right-0 w-64 h-64 bg-blue-500/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 group-hover:bg-blue-500/20 transition duration-500"></div>
+            <div>
+                <span data-i18n="hero_tag" class="inline-block px-4 py-1.5 mb-6 text-xs font-bold tracking-widest text-white bg-white/10 rounded-full uppercase border border-white/10">Spesialis Carousel Instagram</span>
+                <h1 data-i18n="hero_title" class="text-4xl md:text-5xl font-extrabold text-white leading-tight mb-6">
+                    Bikin Ide Kamu Jadi <span class="gradient-text">Konten Visual</span> yang Kece Maksimal.
+                </h1>
+                <p data-i18n="hero_desc" class="text-base md:text-lg leading-relaxed max-w-md">
+                    Spesialis desain carousel IG yang gabungin estetika modern sama strategi yang cuan. Bikin konten kamu stand out!
+                </p>
+            </div>
+            <div class="mt-8 flex flex-wrap gap-4 relative z-10">
+                <a href="#projects" data-i18n="hero_btn_portfolio" class="bg-white text-dark px-6 py-3 rounded-full font-bold hover:bg-gray-200 transition">Liat Portfolio</a>
+                <a href="#services" data-i18n="hero_btn_services" class="bg-white/5 border border-white/10 text-white px-6 py-3 rounded-full font-bold hover:bg-white/10 transition">Cek Layanan</a>
+            </div>
+        </div>
+
+        <!-- Profile (1x2) -->
+        <div id="about" class="bento-card md:col-span-1 md:row-span-2 relative group overflow-hidden min-h-[350px] md:min-h-0">
+            <img src="https://images.unsplash.com/photo-1558655146-d09347e92766?q=80&w=1000&auto=format&fit=crop" alt="Profile" class="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:opacity-100 transition duration-500">
+            <div class="absolute inset-0 bg-gradient-to-t from-dark via-dark/40 to-transparent"></div>
+            <div class="absolute bottom-0 left-0 p-8 w-full">
+                <h3 class="text-2xl font-bold text-white mb-1">Ahmad Fauzi</h3>
+                <p class="text-xs font-bold text-blue-400 mb-2 uppercase tracking-widest">Graphic Designer</p>
+                <p class="text-sm text-gray-300">Bantu ngebangun trust & koneksi asli sama audiens kamu lewat desain yang relate abis.</p>
+            </div>
+        </div>
+
+        <!-- Stats (1x1) -->
+        <div class="bento-card md:col-span-1 md:row-span-1 gradient-bg p-8 py-12 md:py-8 flex flex-col justify-center items-center text-center text-white relative overflow-hidden group">
+            <i class="fa-solid fa-sparkles absolute top-4 right-4 text-white/30 text-2xl group-hover:rotate-12 transition"></i>
+            <h2 class="text-5xl md:text-6xl font-extrabold mb-2">50+</h2>
+            <p class="text-xs md:text-sm font-bold uppercase tracking-wider opacity-90">Project Kelar</p>
+        </div>
+
+        <!-- Marquee (1x1) -->
+        <div class="bento-card md:col-span-1 md:row-span-1 flex flex-col justify-center overflow-hidden py-8 md:py-0">
+            <div class="marquee-wrapper">
+                <div class="marquee-content items-center">
+                    <span class="text-2xl md:text-3xl font-extrabold text-white mx-4 whitespace-nowrap">CREATIVE STRATEGY</span>
+                    <i class="fa-solid fa-asterisk text-blue-400 text-xl mx-4"></i>
+                    <span class="text-2xl md:text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500 mx-4 whitespace-nowrap">DETAIL ORIENTED</span>
+                    <i class="fa-solid fa-asterisk text-purple-400 text-xl mx-4"></i>
+                    <span class="text-2xl md:text-3xl font-extrabold text-white mx-4 whitespace-nowrap">CREATIVE STRATEGY</span>
+                    <i class="fa-solid fa-asterisk text-blue-400 text-xl mx-4"></i>
+                    <span class="text-2xl md:text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500 mx-4 whitespace-nowrap">DETAIL ORIENTED</span>
+                    <i class="fa-solid fa-asterisk text-purple-400 text-xl mx-4"></i>
+                </div>
+            </div>
+        </div>
+
+        <!-- Project 1 (2x2) -->
+        <a href="https://www.instagram.com/aksarabimbel.yk/" target="_blank" id="projects" class="bento-card md:col-span-2 md:row-span-2 group flex flex-col md:block relative overflow-hidden bg-gradient-to-br from-slate-800 to-slate-950 border border-white/10 md:min-h-0">
+            <!-- Text Content -->
+            <div class="relative p-6 md:p-10 flex flex-col z-10 w-full md:w-3/5">
+                <span class="text-blue-400 font-bold text-xs md:text-sm mb-2 md:mb-3"><i class="fa-brands fa-instagram mr-1"></i> @aksarabimbel.yk</span>
+                <h3 class="text-xl md:text-3xl font-bold text-white mb-2 md:mb-4 drop-shadow-md">Aksara Bimbel Edukasi</h3>
+                <p class="text-xs md:text-sm leading-relaxed text-slate-300 drop-shadow">Desain IG buat bimbel. Fokus ngebikin materi ribet jadi carousel asik, tips belajar santai, & template feed yang bikin betah mantengin.</p>
+                <div class="mt-4 md:mt-auto md:pt-8 opacity-100 md:opacity-0 group-hover:opacity-100 transition duration-500 transform md:translate-y-4 group-hover:translate-y-0">
+                    <span class="text-white text-[10px] md:text-xs font-bold border border-white/20 px-3 py-1.5 md:px-4 md:py-2 rounded-full backdrop-blur-sm bg-black/30 hover:bg-white hover:text-dark transition shadow-lg">Lihat Instagram <i class="fa-solid fa-arrow-up-right-from-square ml-1"></i></span>
+                </div>
+            </div>
+            <!-- Floating Image Mockup -->
+            <div class="relative md:absolute mt-6 md:mt-0 ml-auto md:ml-0 self-end -bottom-2 md:-bottom-12 -right-2 md:-right-8 w-[85%] md:w-[50%] aspect-[4/5] rounded-tl-2xl md:rounded-2xl overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.8)] md:-rotate-6 md:group-hover:-rotate-2 group-hover:-translate-y-2 md:group-hover:-translate-y-4 md:group-hover:-translate-x-2 transition-all duration-700 ease-out border-t border-l md:border border-white/10 z-0 bg-dark">
+                <img src="./assets/aksara-1.png" class="absolute inset-0 w-full h-full object-cover animate-carousel4-1" alt="Aksara Slide 1" onerror="this.src='https://images.unsplash.com/photo-1523240795612-9a054b0db644?q=80&w=1000&auto=format&fit=crop'">
+                <img src="./assets/aksara-2.png" class="absolute inset-0 w-full h-full object-cover animate-carousel4-2" alt="Aksara Slide 2" onerror="this.src='https://images.unsplash.com/photo-1523240795612-9a054b0db644?q=80&w=1000&auto=format&fit=crop'">
+                <img src="./assets/aksara-3.png" class="absolute inset-0 w-full h-full object-cover animate-carousel4-3" alt="Aksara Slide 3" onerror="this.src='https://images.unsplash.com/photo-1523240795612-9a054b0db644?q=80&w=1000&auto=format&fit=crop'">
+                <img src="./assets/aksara-4.png" class="absolute inset-0 w-full h-full object-cover animate-carousel4-4" alt="Aksara Slide 4" onerror="this.src='https://images.unsplash.com/photo-1523240795612-9a054b0db644?q=80&w=1000&auto=format&fit=crop'">
+            </div>
+        </a>
+
+        <!-- Project 2 (2x2) -->
+        <a href="https://www.instagram.com/progressivehub_/" target="_blank" class="bento-card md:col-span-2 md:row-span-2 group flex flex-col md:block relative overflow-hidden bg-gradient-to-br from-[#0A0AD0] to-blue-950 border border-white/10 md:min-h-0">
+            <!-- Text Content -->
+            <div class="relative p-6 md:p-10 flex flex-col z-10 w-full md:w-3/5">
+                <span class="text-blue-200 font-bold text-xs md:text-sm mb-2 md:mb-3"><i class="fa-brands fa-instagram mr-1"></i> @progressivehub_</span>
+                <h3 class="text-xl md:text-3xl font-bold text-white mb-2 md:mb-4 drop-shadow-md">Progressive Hub</h3>
+                <p class="text-xs md:text-sm leading-relaxed text-blue-100 drop-shadow">Bikin visual informatif buat event, inspirasi harian, dan ngebangun vibe komunitas yang progresif abis.</p>
+                <div class="mt-4 md:mt-auto md:pt-8 opacity-100 md:opacity-0 group-hover:opacity-100 transition duration-500 transform md:translate-y-4 group-hover:translate-y-0">
+                    <span class="text-white text-[10px] md:text-xs font-bold border border-white/20 px-3 py-1.5 md:px-4 md:py-2 rounded-full backdrop-blur-sm bg-black/20 hover:bg-white hover:text-dark transition shadow-lg">Lihat Instagram <i class="fa-solid fa-arrow-up-right-from-square ml-1"></i></span>
+                </div>
+            </div>
+            <!-- Floating Image Mockup -->
+            <div class="relative md:absolute mt-6 md:mt-0 ml-auto md:ml-0 self-end -bottom-2 md:-bottom-12 -right-2 md:-right-8 w-[85%] md:w-[50%] aspect-[4/5] rounded-tl-2xl md:rounded-2xl overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.8)] md:rotate-6 md:group-hover:rotate-2 group-hover:-translate-y-2 md:group-hover:-translate-y-4 md:group-hover:-translate-x-2 transition-all duration-700 ease-out border-t border-l md:border border-white/20 z-0 bg-dark">
+                <img src="./assets/progressive-1.png" class="absolute inset-0 w-full h-full object-cover animate-carousel4-1" alt="Progressive Slide 1" onerror="this.src='https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=1000&auto=format&fit=crop'">
+                <img src="./assets/progressive-2.png" class="absolute inset-0 w-full h-full object-cover animate-carousel4-2" alt="Progressive Slide 2" onerror="this.src='https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=1000&auto=format&fit=crop'">
+                <img src="./assets/progressive-3.png" class="absolute inset-0 w-full h-full object-cover animate-carousel4-3" alt="Progressive Slide 3" onerror="this.src='https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=1000&auto=format&fit=crop'">
+                <img src="./assets/progressive-4.png" class="absolute inset-0 w-full h-full object-cover animate-carousel4-4" alt="Progressive Slide 4" onerror="this.src='https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=1000&auto=format&fit=crop'">
+            </div>
+        </a>
+
+        <!-- Project 3 (2x2) -->
+        <a href="https://www.instagram.com/pandai_indonesia/" target="_blank" class="bento-card md:col-span-2 md:row-span-2 group flex flex-col md:block relative overflow-hidden bg-gradient-to-br from-[#2a241e] to-black border border-white/10 md:min-h-0">
+            <!-- Text Content -->
+            <div class="relative p-6 md:p-10 flex flex-col z-10 w-full md:w-3/5">
+                <span class="text-amber-400 font-bold text-xs md:text-sm mb-2 md:mb-3"><i class="fa-brands fa-instagram mr-1"></i> @pandai_indonesia</span>
+                <h3 class="text-xl md:text-3xl font-bold text-white mb-2 md:mb-4 drop-shadow-md">Pandai Indonesia</h3>
+                <p class="text-xs md:text-sm leading-relaxed text-amber-50 drop-shadow">Ngebangun identitas visual yang fresh & konten edukasi buat nge-reach out dan ngasih impact ke Gen-Z.</p>
+                <div class="mt-4 md:mt-auto md:pt-8 opacity-100 md:opacity-0 group-hover:opacity-100 transition duration-500 transform md:translate-y-4 group-hover:translate-y-0">
+                    <span class="text-white text-[10px] md:text-xs font-bold border border-white/20 px-3 py-1.5 md:px-4 md:py-2 rounded-full backdrop-blur-sm bg-black/40 hover:bg-white hover:text-dark transition shadow-lg">Lihat Instagram <i class="fa-solid fa-arrow-up-right-from-square ml-1"></i></span>
+                </div>
+            </div>
+            <!-- Floating Image Mockup -->
+            <div class="relative md:absolute mt-6 md:mt-0 ml-auto md:ml-0 self-end -bottom-2 md:-bottom-12 -right-2 md:-right-8 w-[85%] md:w-[50%] aspect-[4/5] rounded-tl-2xl md:rounded-2xl overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.8)] md:-rotate-6 md:group-hover:-rotate-2 group-hover:-translate-y-2 md:group-hover:-translate-y-4 md:group-hover:-translate-x-2 transition-all duration-700 ease-out border-t border-l md:border border-white/10 z-0 bg-dark">
+                <img src="./assets/pandai-1.png" class="absolute inset-0 w-full h-full object-cover animate-carousel4-1" alt="Pandai Slide 1" onerror="this.src='https://images.unsplash.com/photo-1524178232363-1fb2b075b655?q=80&w=1000&auto=format&fit=crop'">
+                <img src="./assets/pandai-2.jpg" class="absolute inset-0 w-full h-full object-cover animate-carousel4-2" alt="Pandai Slide 2" onerror="this.src='https://images.unsplash.com/photo-1524178232363-1fb2b075b655?q=80&w=1000&auto=format&fit=crop'">
+                <img src="./assets/pandai-3.jpg" class="absolute inset-0 w-full h-full object-cover animate-carousel4-3" alt="Pandai Slide 3" onerror="this.src='https://images.unsplash.com/photo-1524178232363-1fb2b075b655?q=80&w=1000&auto=format&fit=crop'">
+                <img src="./assets/pandai-4.jpg" class="absolute inset-0 w-full h-full object-cover animate-carousel4-4" alt="Pandai Slide 4" onerror="this.src='https://images.unsplash.com/photo-1524178232363-1fb2b075b655?q=80&w=1000&auto=format&fit=crop'">
+            </div>
+        </a>
+
+        <!-- Project 4 (2x2) -->
+        <a href="https://www.instagram.com/spinotekcorp/" target="_blank" class="bento-card md:col-span-2 md:row-span-2 group flex flex-col md:block relative overflow-hidden bg-gradient-to-br from-cyan-900 to-slate-900 border border-white/10 md:min-h-0">
+            <!-- Text Content -->
+            <div class="relative p-6 md:p-10 flex flex-col z-10 w-full md:w-3/5">
+                <span class="text-cyan-400 font-bold text-xs md:text-sm mb-2 md:mb-3"><i class="fa-brands fa-instagram mr-1"></i> @spinotekcorp</span>
+                <h3 class="text-xl md:text-3xl font-bold text-white mb-2 md:mb-4 drop-shadow-md">Spinotek Corp</h3>
+                <p class="text-xs md:text-sm leading-relaxed text-cyan-50 drop-shadow">Strategi visual korporat B2B. Nonjolin vibe profesional tapi tetep modern, inovatif, dan bikin klien kamu langsung percaya.</p>
+                <div class="mt-4 md:mt-auto md:pt-8 opacity-100 md:opacity-0 group-hover:opacity-100 transition duration-500 transform md:translate-y-4 group-hover:translate-y-0">
+                    <span class="text-white text-[10px] md:text-xs font-bold border border-white/20 px-3 py-1.5 md:px-4 md:py-2 rounded-full backdrop-blur-sm hover:bg-white hover:text-dark transition shadow-lg bg-black/30">Lihat Instagram <i class="fa-solid fa-arrow-up-right-from-square ml-1"></i></span>
+                </div>
+            </div>
+            <!-- Floating Image Mockup -->
+            <div class="relative md:absolute mt-6 md:mt-0 ml-auto md:ml-0 self-end -bottom-2 md:-bottom-12 -right-2 md:-right-8 w-[85%] md:w-[50%] aspect-[4/5] rounded-tl-2xl md:rounded-2xl overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.8)] md:rotate-6 md:group-hover:rotate-2 group-hover:-translate-y-2 md:group-hover:-translate-y-4 md:group-hover:-translate-x-2 transition-all duration-700 ease-out border-t border-l md:border border-white/10 z-0 bg-dark">
+                <img src="./assets/spinotek-1.png" class="absolute inset-0 w-full h-full object-cover animate-carousel-1" alt="Spinotek Slide 1" onerror="this.src='https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=1000&auto=format&fit=crop'">
+                <img src="./assets/spinotek-2.png" class="absolute inset-0 w-full h-full object-cover animate-carousel-2" alt="Spinotek Slide 2" onerror="this.src='https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=1000&auto=format&fit=crop'">
+                <img src="./assets/spinotek-3.png" class="absolute inset-0 w-full h-full object-cover animate-carousel-3" alt="Spinotek Slide 3" onerror="this.src='https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=1000&auto=format&fit=crop'">
+            </div>
+        </a>
+
+        <!-- Service 1 -->
+        <div id="services" class="bento-card md:col-span-2 md:row-span-1 p-4 md:p-8 flex flex-col md:flex-row gap-2 md:gap-8 items-start justify-between group">
+            <div class="w-full md:w-5/12 mb-1 md:mb-0">
+                <div class="w-8 h-8 md:w-12 md:h-12 rounded-full bg-blue-500/10 flex items-center justify-center mb-2 md:mb-4 text-blue-400 group-hover:bg-blue-500/20 transition">
+                    <i class="fa-solid fa-layer-group text-sm md:text-xl"></i>
+                </div>
+                <h4 class="text-base md:text-xl font-bold text-white leading-tight mb-1 md:mb-2">Desain Konten IG</h4>
+                <span class="inline-block px-2 py-0.5 md:px-3 md:py-1 bg-blue-500/10 border border-blue-500/20 text-blue-400 text-[10px] md:text-xs font-bold rounded-full">Spesialis Carousel</span>
+            </div>
+            <div class="w-full md:w-7/12 mt-2 md:mt-0">
+                <ul class="space-y-1.5 md:space-y-2 text-xs md:text-sm text-textMuted">
+                    <li class="flex items-start gap-2 md:gap-3"><i class="fa-solid fa-check text-blue-500 mt-0.5 md:mt-1 text-[10px] md:text-xs opacity-70"></i> <span>Carousel edukasi (gak ngebosenin)</span></li>
+                    <li class="flex items-start gap-2 md:gap-3"><i class="fa-solid fa-check text-blue-500 mt-0.5 md:mt-1 text-[10px] md:text-xs opacity-70"></i> <span>Carousel story telling yang asik</span></li>
+                    <li class="flex items-start gap-2 md:gap-3"><i class="fa-solid fa-check text-blue-500 mt-0.5 md:mt-1 text-[10px] md:text-xs opacity-70"></i> <span>Konten motivasi / personal branding</span></li>
+                    <li class="flex items-start gap-2 md:gap-3"><i class="fa-solid fa-check text-blue-500 mt-0.5 md:mt-1 text-[10px] md:text-xs opacity-70"></i> <span>Infografis gampang dicerna</span></li>
+                    <li class="flex items-start gap-2 md:gap-3"><i class="fa-solid fa-check text-blue-500 mt-0.5 md:mt-1 text-[10px] md:text-xs opacity-70"></i> <span>Promo jualan tapi tetep soft & estetik</span></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Service 2 -->
+        <div class="bento-card md:col-span-2 md:row-span-1 p-4 md:p-8 flex flex-col md:flex-row gap-2 md:gap-8 items-start justify-between group">
+            <div class="w-full md:w-5/12 mb-1 md:mb-0">
+                <div class="w-8 h-8 md:w-12 md:h-12 rounded-full bg-purple-500/10 flex items-center justify-center mb-2 md:mb-4 text-purple-400 group-hover:bg-purple-500/20 transition">
+                    <i class="fa-solid fa-table-cells text-sm md:text-xl"></i>
+                </div>
+                <h4 class="text-base md:text-xl font-bold text-white leading-tight mb-1 md:mb-2">Makeover Feed & Visual Branding</h4>
+                <span class="inline-block px-2 py-0.5 md:px-3 md:py-1 bg-purple-500/10 border border-purple-500/20 text-purple-400 text-[10px] md:text-xs font-bold rounded-full">Sosial Media</span>
+            </div>
+            <div class="w-full md:w-7/12 mt-2 md:mt-0">
+                <ul class="space-y-1.5 md:space-y-2 text-xs md:text-sm text-textMuted">
+                    <li class="flex items-start gap-2 md:gap-3"><i class="fa-solid fa-check text-purple-500 mt-0.5 md:mt-1 text-[10px] md:text-xs opacity-70"></i> <span>Template feed & story siap pakai</span></li>
+                    <li class="flex items-start gap-2 md:gap-3"><i class="fa-solid fa-check text-purple-500 mt-0.5 md:mt-1 text-[10px] md:text-xs opacity-70"></i> <span>Cover Highlight biar rapi</span></li>
+                    <li class="flex items-start gap-2 md:gap-3"><i class="fa-solid fa-check text-purple-500 mt-0.5 md:mt-1 text-[10px] md:text-xs opacity-70"></i> <span>Ngerapiin grid layout feed kamu</span></li>
+                    <li class="flex items-start gap-2 md:gap-3"><i class="fa-solid fa-check text-purple-500 mt-0.5 md:mt-1 text-[10px] md:text-xs opacity-70"></i> <span>Visual kit bulanan (anti pusing)</span></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Service 3 -->
+        <div class="bento-card md:col-span-2 md:row-span-1 p-4 md:p-8 flex flex-col md:flex-row gap-2 md:gap-8 items-start justify-between group">
+            <div class="w-full md:w-5/12 mb-1 md:mb-0">
+                <div class="w-8 h-8 md:w-12 md:h-12 rounded-full bg-pink-500/10 flex items-center justify-center mb-2 md:mb-4 text-pink-400 group-hover:bg-pink-500/20 transition">
+                    <i class="fa-solid fa-fingerprint text-sm md:text-xl"></i>
+                </div>
+                <h4 class="text-base md:text-xl font-bold text-white leading-tight mb-1 md:mb-2">Branding & Identitas Logo</h4>
+                <span class="inline-block px-2 py-0.5 md:px-3 md:py-1 bg-pink-500/10 border border-pink-500/20 text-pink-400 text-[10px] md:text-xs font-bold rounded-full">Basic - Menengah</span>
+            </div>
+            <div class="w-full md:w-7/12 mt-2 md:mt-0">
+                <ul class="space-y-1.5 md:space-y-2 text-xs md:text-sm text-textMuted">
+                    <li class="flex items-start gap-2 md:gap-3"><i class="fa-solid fa-check text-pink-500 mt-0.5 md:mt-1 text-[10px] md:text-xs opacity-70"></i> <span>Bikin logo simpel tapi ngena</span></li>
+                    <li class="flex items-start gap-2 md:gap-3"><i class="fa-solid fa-check text-pink-500 mt-0.5 md:mt-1 text-[10px] md:text-xs opacity-70"></i> <span>Nentuin warna & font yang pas</span></li>
+                    <li class="flex items-start gap-2 md:gap-3"><i class="fa-solid fa-check text-pink-500 mt-0.5 md:mt-1 text-[10px] md:text-xs opacity-70"></i> <span>Guideline warna & font biar konsisten</span></li>
+                    <li class="flex items-start gap-2 md:gap-3"><i class="fa-solid fa-check text-pink-500 mt-0.5 md:mt-1 text-[10px] md:text-xs opacity-70"></i> <span>Brand kit komplit buat medsos kamu</span></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Service 4 -->
+        <div class="bento-card md:col-span-2 md:row-span-1 p-4 md:p-8 flex flex-col md:flex-row gap-2 md:gap-8 items-start justify-between group">
+            <div class="w-full md:w-5/12 mb-1 md:mb-0">
+                <div class="w-8 h-8 md:w-12 md:h-12 rounded-full bg-emerald-500/10 flex items-center justify-center mb-2 md:mb-4 text-emerald-400 group-hover:bg-emerald-500/20 transition">
+                    <i class="fa-solid fa-scroll text-sm md:text-xl"></i>
+                </div>
+                <h4 class="text-base md:text-xl font-bold text-white leading-tight mb-1 md:mb-2">Poster & Print Design</h4>
+                <span class="inline-block px-2 py-0.5 md:px-3 md:py-1 bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-[10px] md:text-xs font-bold rounded-full">Digital & Print</span>
+            </div>
+            <div class="w-full md:w-7/12 mt-2 md:mt-0">
+                <ul class="space-y-1.5 md:space-y-2 text-xs md:text-sm text-textMuted">
+                    <li class="flex items-start gap-2 md:gap-3"><i class="fa-solid fa-check text-emerald-500 mt-0.5 md:mt-1 text-[10px] md:text-xs opacity-70"></i> <span>Poster event yang bikin FOMO</span></li>
+                    <li class="flex items-start gap-2 md:gap-3"><i class="fa-solid fa-check text-emerald-500 mt-0.5 md:mt-1 text-[10px] md:text-xs opacity-70"></i> <span>Flyer digital buat blast di WA</span></li>
+                    <li class="flex items-start gap-2 md:gap-3"><i class="fa-solid fa-check text-emerald-500 mt-0.5 md:mt-1 text-[10px] md:text-xs opacity-70"></i> <span>Desain banner buat stand/booth</span></li>
+                    <li class="flex items-start gap-2 md:gap-3"><i class="fa-solid fa-check text-emerald-500 mt-0.5 md:mt-1 text-[10px] md:text-xs opacity-70"></i> <span>Undangan digital kekinian</span></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Service 5 -->
+        <div class="bento-card md:col-span-2 md:row-span-1 p-4 md:p-8 flex flex-col md:flex-row gap-2 md:gap-8 items-start justify-between group">
+            <div class="w-full md:w-5/12 mb-1 md:mb-0">
+                <div class="w-8 h-8 md:w-12 md:h-12 rounded-full bg-amber-500/10 flex items-center justify-center mb-2 md:mb-4 text-amber-400 group-hover:bg-amber-500/20 transition">
+                    <i class="fa-solid fa-desktop text-sm md:text-xl"></i>
+                </div>
+                <h4 class="text-base md:text-xl font-bold text-white leading-tight mb-1 md:mb-2">Presentation Design</h4>
+                <span class="inline-block px-2 py-0.5 md:px-3 md:py-1 bg-amber-500/10 border border-amber-500/20 text-amber-400 text-[10px] md:text-xs font-bold rounded-full">Profesional</span>
+            </div>
+            <div class="w-full md:w-7/12 mt-2 md:mt-0">
+                <ul class="space-y-1.5 md:space-y-2 text-xs md:text-sm text-textMuted">
+                    <li class="flex items-start gap-2 md:gap-3"><i class="fa-solid fa-check text-amber-500 mt-0.5 md:mt-1 text-[10px] md:text-xs opacity-70"></i> <span>Makeover slide presentasi kamu</span></li>
+                    <li class="flex items-start gap-2 md:gap-3"><i class="fa-solid fa-check text-amber-500 mt-0.5 md:mt-1 text-[10px] md:text-xs opacity-70"></i> <span>Pitch deck buat narik investor</span></li>
+                    <li class="flex items-start gap-2 md:gap-3"><i class="fa-solid fa-check text-amber-500 mt-0.5 md:mt-1 text-[10px] md:text-xs opacity-70"></i> <span>Company profile yang gak kaku</span></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Service 6 -->
+        <div class="bento-card md:col-span-2 md:row-span-1 p-4 md:p-8 flex flex-col md:flex-row gap-2 md:gap-8 items-start justify-between group">
+            <div class="w-full md:w-5/12 mb-1 md:mb-0">
+                <div class="w-8 h-8 md:w-12 md:h-12 rounded-full bg-cyan-500/10 flex items-center justify-center mb-2 md:mb-4 text-cyan-400 group-hover:bg-cyan-500/20 transition">
+                    <i class="fa-solid fa-book-open text-sm md:text-xl"></i>
+                </div>
+                <h4 class="text-base md:text-xl font-bold text-white leading-tight mb-1 md:mb-2">Desain Modul & Edukasi</h4>
+                <span class="inline-block px-2 py-0.5 md:px-3 md:py-1 bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 text-[10px] md:text-xs font-bold rounded-full">Akademik & Course</span>
+            </div>
+            <div class="w-full md:w-7/12 mt-2 md:mt-0">
+                <ul class="space-y-1.5 md:space-y-2 text-xs md:text-sm text-textMuted">
+                    <li class="flex items-start gap-2 md:gap-3"><i class="fa-solid fa-check text-cyan-500 mt-0.5 md:mt-1 text-[10px] md:text-xs opacity-70"></i> <span>Bikin materi belajar lebih visual</span></li>
+                    <li class="flex items-start gap-2 md:gap-3"><i class="fa-solid fa-check text-cyan-500 mt-0.5 md:mt-1 text-[10px] md:text-xs opacity-70"></i> <span>Modul kursus dibikin jadi carousel</span></li>
+                    <li class="flex items-start gap-2 md:gap-3"><i class="fa-solid fa-check text-cyan-500 mt-0.5 md:mt-1 text-[10px] md:text-xs opacity-70"></i> <span>Micro-learning yang super praktis</span></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Service 7 -->
+        <div class="bento-card md:col-span-2 md:row-span-1 p-4 md:p-8 flex flex-col md:flex-row gap-2 md:gap-8 items-start justify-between group">
+            <div class="w-full md:w-5/12 mb-1 md:mb-0">
+                <div class="w-8 h-8 md:w-12 md:h-12 rounded-full bg-rose-500/10 flex items-center justify-center mb-2 md:mb-4 text-rose-400 group-hover:bg-rose-500/20 transition">
+                    <i class="fa-solid fa-pen-nib text-sm md:text-xl"></i>
+                </div>
+                <h4 class="text-base md:text-xl font-bold text-white leading-tight mb-1 md:mb-2">Paket Komplit (Copy + Desain)</h4>
+                <span class="inline-block px-2 py-0.5 md:px-3 md:py-1 bg-rose-500/10 border border-rose-500/20 text-rose-400 text-[10px] md:text-xs font-bold rounded-full">All-in-one</span>
+            </div>
+            <div class="w-full md:w-7/12 mt-2 md:mt-0">
+                <ul class="space-y-1.5 md:space-y-2 text-xs md:text-sm text-textMuted">
+                    <li class="flex items-start gap-2 md:gap-3"><i class="fa-solid fa-check text-rose-500 mt-0.5 md:mt-1 text-[10px] md:text-xs opacity-70"></i> <span>Dibantuin nulis caption & copy</span></li>
+                    <li class="flex items-start gap-2 md:gap-3"><i class="fa-solid fa-check text-rose-500 mt-0.5 md:mt-1 text-[10px] md:text-xs opacity-70"></i> <span>Ngerapiin caption biar enak dibaca</span></li>
+                    <li class="flex items-start gap-2 md:gap-3"><i class="fa-solid fa-check text-rose-500 mt-0.5 md:mt-1 text-[10px] md:text-xs opacity-70"></i> <span>Nentuin gaya bahasa brand kamu</span></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Service 8 (Custom CTA for empty slot) -->
+        <div class="bento-card md:col-span-2 md:row-span-1 p-6 md:p-8 py-10 md:py-8 flex flex-col justify-center items-center text-center relative overflow-hidden group">
+            <div class="absolute inset-0 bg-gradient-to-br from-blue-600/10 to-purple-600/10 opacity-50 group-hover:opacity-100 transition duration-500"></div>
+            <i class="fa-solid fa-comments text-3xl text-white/30 mb-3 group-hover:scale-110 transition duration-300 relative z-10"></i>
+            <h4 class="text-lg md:text-xl font-bold text-white mb-2 relative z-10">Butuh layanan lain?</h4>
+            <p class="text-xs md:text-sm text-textMuted mb-4 max-w-sm relative z-10">Mari kita diskusikan kebutuhan spesifik kamu untuk mencari solusi visual yang tepat.</p>
+            <a href="#contact" class="bg-white/10 hover:bg-white/20 border border-white/10 text-white px-5 py-2 rounded-full text-xs font-bold transition relative z-10 backdrop-blur-sm">Tanya Cek Layanan</a>
+        </div>
+
+        <!-- CTA (4x1 or 2 rows on mobile) -->
+        <div id="contact" class="bento-card md:col-span-4 md:row-span-1 p-8 md:p-10 flex flex-col md:flex-row items-center justify-between gap-8 relative overflow-hidden text-center md:text-left">
+            <div class="absolute top-0 right-0 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3"></div>
+            <div class="absolute bottom-0 left-0 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl translate-y-1/2 -translate-x-1/3"></div>
+            
+            <div class="relative z-10 max-w-xl">
+                <h2 class="text-3xl md:text-4xl font-extrabold text-white mb-4">Punya Ide Gila Buat Project?</h2>
+                <p class="text-sm md:text-base">Kuy ngobrol santai bahas project kamu. Gua selalu open buat kolaborasi seru dan bikin sesuatu yang keren bareng!</p>
+            </div>
+            <div class="relative z-10 flex flex-col sm:flex-row flex-wrap gap-4 justify-center">
+                <a href="https://wa.me/6282133859622" target="_blank" class="bg-white text-dark px-8 py-4 rounded-full font-bold hover:bg-gray-200 transition flex items-center justify-center gap-2 shadow-xl shadow-white/5">
+                    <i class="fa-brands fa-whatsapp text-xl text-green-500"></i> Chat WA Aja
+                </a>
+                <a href="https://www.instagram.com/fauziahmad.23/" target="_blank" class="bg-white/10 text-white px-8 py-4 rounded-full font-bold hover:bg-white/20 transition flex items-center justify-center gap-2 border border-white/10 backdrop-blur-md">
+                    <i class="fa-brands fa-instagram text-xl text-pink-400"></i> DM di IG
+                </a>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Pricing Section (Moved out of rigid bento grid) -->
+    <section class="max-w-7xl mx-auto mt-6 pricing-container">
+        <div id="pricing" class="bento-card p-8 md:p-10 relative overflow-hidden">
+            <!-- UI Website -->
+            <div id="pricing-ui">
+            <!-- Decorative blur -->
+            <div class="absolute top-0 right-1/4 w-96 h-96 bg-green-500/10 rounded-full blur-3xl -translate-y-1/2"></div>
+            
+            <div class="text-center mb-10 relative z-10">
+                <span class="inline-block px-4 py-1.5 bg-green-500/10 border border-green-500/20 text-green-400 text-xs font-bold rounded-full mb-3 tracking-widest uppercase">Investment</span>
+                <h2 class="text-3xl md:text-4xl font-extrabold text-white mb-3">Katalog Harga & Investasi Visual</h2>
+                <p class="text-sm md:text-base text-textMuted max-w-2xl mx-auto mb-6">Harga transparan, gak ada hidden fee. Bayar sesuai kebutuhan, hasil maksimal buat naikin value brand kamu. <br><span class="text-amber-400 font-bold mt-3 inline-block px-4 py-2 bg-amber-500/10 rounded-full border border-amber-500/20 shadow-lg"><i class="fa-solid fa-bolt text-amber-500 mr-2"></i> PROMO DISKON 50% KHUSUS 5 KLIEN PERTAMA AJA NIH!</span></p>
+                <button onclick="window.print();" class="inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 border border-white/20 text-white px-6 py-3 rounded-full text-sm font-bold transition shadow-lg backdrop-blur-md group">
+                    <i class="fa-solid fa-download group-hover:-translate-y-1 transition-transform"></i> Download Katalog PDF
+                </button>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-10 relative z-10">
+                
+                <!-- Harga Satuan -->
+                <div class="bg-card/50 rounded-2xl p-6 md:p-8 border border-white/5 shadow-xl flex flex-col h-full">
+                    <h3 class="text-xl font-bold text-white mb-6 flex items-center gap-3"><i class="fa-solid fa-tag text-blue-400"></i> Layanan Satuan (Pas Butuh Aja)</h3>
+                    <div class="space-y-1 flex-1">
+                        <!-- Item 1 -->
+                        <div class="flex justify-between items-center py-3 border-b border-white/5 hover:bg-white/5 px-2 rounded-lg transition group">
+                            <span class="text-sm text-slate-200 font-medium group-hover:text-white transition">1. Desain Carousel IG (5–10 slide)</span>
+                            <div class="text-right whitespace-nowrap pl-3">
+                                <span class="text-[10px] text-textMuted line-through block">Rp 200.000</span>
+                                <span class="text-sm font-extrabold text-green-400">Rp 100.000</span>
+                            </div>
+                        </div>
+                        <!-- Item 2 -->
+                        <div class="flex justify-between items-center py-3 border-b border-white/5 hover:bg-white/5 px-2 rounded-lg transition group">
+                            <span class="text-sm text-slate-200 font-medium group-hover:text-white transition">2. Desain Poster / Flyer</span>
+                            <div class="text-right whitespace-nowrap pl-3">
+                                <span class="text-[10px] text-textMuted line-through block">Rp 120.000</span>
+                                <span class="text-sm font-extrabold text-green-400">Rp 60.000</span>
+                            </div>
+                        </div>
+                        <!-- Item 3 -->
+                        <div class="flex justify-between items-center py-3 border-b border-white/5 hover:bg-white/5 px-2 rounded-lg transition group">
+                            <span class="text-sm text-slate-200 font-medium group-hover:text-white transition">3. Template Feed / Story (3 template)</span>
+                            <div class="text-right whitespace-nowrap pl-3">
+                                <span class="text-[10px] text-textMuted line-through block">Rp 180.000</span>
+                                <span class="text-sm font-extrabold text-green-400">Rp 90.000</span>
+                            </div>
+                        </div>
+                        <!-- Item 4 -->
+                        <div class="flex justify-between items-center py-3 border-b border-white/5 hover:bg-white/5 px-2 rounded-lg transition group">
+                            <span class="text-sm text-slate-200 font-medium group-hover:text-white transition">4. Paket 6 Template Feed / Story</span>
+                            <div class="text-right whitespace-nowrap pl-3">
+                                <span class="text-[10px] text-textMuted line-through block">Rp 300.000</span>
+                                <span class="text-sm font-extrabold text-green-400">Rp 150.000</span>
+                            </div>
+                        </div>
+                        <!-- Item 5 -->
+                        <div class="flex justify-between items-center py-3 border-b border-white/5 hover:bg-white/5 px-2 rounded-lg transition group">
+                            <span class="text-sm text-slate-200 font-medium group-hover:text-white transition">5. Paket 10 Template Feed / Story</span>
+                            <div class="text-right whitespace-nowrap pl-3">
+                                <span class="text-[10px] text-textMuted line-through block">Rp 500.000</span>
+                                <span class="text-sm font-extrabold text-green-400">Rp 250.000</span>
+                            </div>
+                        </div>
+                        <!-- Item 6 -->
+                        <div class="flex justify-between items-center py-3 border-b border-white/5 hover:bg-white/5 px-2 rounded-lg transition group">
+                            <span class="text-sm text-slate-200 font-medium group-hover:text-white transition">6. Logo Sederhana</span>
+                            <div class="text-right whitespace-nowrap pl-3">
+                                <span class="text-[10px] text-textMuted line-through block">Rp 300.000</span>
+                                <span class="text-sm font-extrabold text-green-400">Rp 150.000</span>
+                            </div>
+                        </div>
+                        <!-- Item 7 -->
+                        <div class="flex justify-between items-center py-3 border-b border-white/5 hover:bg-white/5 px-2 rounded-lg transition group">
+                            <span class="text-sm text-slate-200 font-medium group-hover:text-white transition">7. Mini Brand Kit</span>
+                            <div class="text-right whitespace-nowrap pl-3">
+                                <span class="text-[10px] text-textMuted line-through block">Rp 800.000</span>
+                                <span class="text-sm font-extrabold text-green-400">Rp 400.000</span>
+                            </div>
+                        </div>
+                        <!-- Item 8 -->
+                        <div class="flex justify-between items-center py-3 border-b border-white/5 hover:bg-white/5 px-2 rounded-lg transition group">
+                            <span class="text-sm text-slate-200 font-medium group-hover:text-white transition">8. Desain Presentasi (10 slide)</span>
+                            <div class="text-right whitespace-nowrap pl-3">
+                                <span class="text-[10px] text-textMuted line-through block">Rp 250.000</span>
+                                <span class="text-sm font-extrabold text-green-400">Rp 125.000</span>
+                            </div>
+                        </div>
+                        <!-- Item 9 -->
+                        <div class="flex justify-between items-center py-3 hover:bg-white/5 px-2 rounded-lg transition group">
+                            <span class="text-sm text-slate-200 font-medium group-hover:text-white transition">9. Carousel + Copywriting</span>
+                            <div class="text-right whitespace-nowrap pl-3">
+                                <span class="text-[10px] text-textMuted line-through block">Rp 400.000</span>
+                                <span class="text-sm font-extrabold text-green-400">Rp 200.000</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Column (Paket Bulanan & Bonus) -->
+                <div class="flex flex-col gap-8 h-full">
+                    
+                    <!-- Harga Paket Bulanan -->
+                    <div class="bg-gradient-to-br from-purple-900/40 to-indigo-900/40 rounded-2xl p-6 md:p-8 border border-purple-500/20 shadow-xl relative overflow-hidden flex-1">
+                        <div class="absolute top-0 right-0 w-32 h-32 bg-purple-500/20 rounded-full blur-2xl -translate-y-1/2 translate-x-1/2"></div>
+                        <h3 class="text-xl font-bold text-white mb-6 flex items-center gap-3 relative z-10"><i class="fa-solid fa-box-open text-purple-400"></i> Paket Langganan (Lebih Cuan)</h3>
+                        
+                        <div class="space-y-2 relative z-10">
+                            <!-- Item 1 -->
+                            <div class="flex justify-between items-center py-4 border-b border-white/5 hover:bg-white/5 px-2 rounded-lg transition">
+                                <div>
+                                    <span class="text-sm font-bold text-white block">Paket 4 Carousel / Bulan</span>
+                                    <span class="text-xs text-purple-300">Pas banget buat update tiap minggu</span>
+                                </div>
+                                <div class="text-right whitespace-nowrap pl-3">
+                                    <span class="text-[10px] text-textMuted line-through block">Rp 600.000</span>
+                                    <span class="text-base font-extrabold text-green-400">Rp 300.000</span>
+                                </div>
+                            </div>
+                            <!-- Item 2 -->
+                            <div class="flex justify-between items-center py-4 border-b border-white/5 hover:bg-white/5 px-2 rounded-lg transition">
+                                <div>
+                                    <span class="text-sm font-bold text-white block">Paket 8 Carousel / Bulan</span>
+                                    <span class="text-xs text-purple-300">Cocok buat kamu yang lagi nge-push brand</span>
+                                </div>
+                                <div class="text-right whitespace-nowrap pl-3">
+                                    <span class="text-[10px] text-textMuted line-through block">Rp 1.200.000</span>
+                                    <span class="text-base font-extrabold text-green-400">Rp 600.000</span>
+                                </div>
+                            </div>
+                            <!-- Item 3 -->
+                            <div class="flex justify-between items-center py-4 hover:bg-white/5 px-2 rounded-lg transition">
+                                <div>
+                                    <span class="text-sm font-bold text-white block">Paket 12 Carousel / Bulan</span>
+                                    <span class="text-xs text-purple-300">Biar feed kamu selalu nongol tiap hari</span>
+                                </div>
+                                <div class="text-right whitespace-nowrap pl-3">
+                                    <span class="text-[10px] text-textMuted line-through block">Rp 1.800.000</span>
+                                    <span class="text-base font-extrabold text-green-400">Rp 900.000</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Bonus Tambahan -->
+                    <div class="bg-gradient-to-r from-card/80 to-card border border-pink-500/10 rounded-2xl p-6 md:p-8 shadow-xl">
+                        <h3 class="text-lg font-bold text-white mb-4 flex items-center gap-3"><i class="fa-solid fa-gift text-pink-400"></i> Bonus Eksklusif</h3>
+                        <p class="text-xs text-textMuted mb-5">Gratis benefit berikut khusus untuk 5 klien pertama yang deal minggu ini:</p>
+                        <ul class="space-y-4">
+                            <li class="flex items-center gap-3 text-sm text-slate-200">
+                                <div class="w-8 h-8 rounded-full bg-pink-500/10 text-pink-400 flex items-center justify-center shrink-0"><i class="fa-solid fa-check"></i></div>
+                                <span><strong>Free 1x Revisi Ekstra</strong> di luar jatah normal</span>
+                            </li>
+                            <li class="flex items-center gap-3 text-sm text-slate-200">
+                                <div class="w-8 h-8 rounded-full bg-pink-500/10 text-pink-400 flex items-center justify-center shrink-0"><i class="fa-solid fa-file-export"></i></div>
+                                <span><strong>Free Master File Template</strong> (1 slide editable)</span>
+                            </li>
+                            <li class="flex items-center gap-3 text-sm text-slate-200">
+                                <div class="w-8 h-8 rounded-full bg-pink-500/10 text-pink-400 flex items-center justify-center shrink-0"><i class="fa-solid fa-comments"></i></div>
+                                <span><strong>Free Konsultasi Visual Tone</strong> untuk brand kamu</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+            </div><!-- end pricing-ui -->
+
+            <!-- PRINT CATALOG (Tabel Profesional) -->
+            <div id="print-catalog" class="hidden text-black bg-white">
+                <div class="border-b-2 border-black pb-4 mb-6 flex justify-between items-end">
+                    <div>
+                        <h1 class="text-3xl font-extrabold mb-1 tracking-tight">Katalog Cek Layanan & Investasi Visual</h1>
+                        <p class="text-gray-600 text-sm">Spesialis Desain Konten Sosial Media & Branding</p>
+                    </div>
+                    <div class="text-right">
+                        <p class="font-bold text-lg">AHMAD FAUZI.</p>
+                        <p class="text-gray-600 text-sm">WA: +62 821-3385-9622</p>
+                    </div>
+                </div>
+
+                <div class="mb-8">
+                    <p class="mb-4 text-sm font-semibold italic text-red-600">* HARGA PROMO DISKON 50% KHUSUS 5 KLIEN PERTAMA</p>
+                    
+                    <h3 class="font-bold text-lg mb-3 uppercase bg-gray-100 py-1 px-2 border-l-4 border-black">A. Layanan Satuan (Pas Butuh Aja)</h3>
+                    <table class="w-full text-sm border-collapse mb-6">
+                        <thead>
+                            <tr class="border-b-2 border-black text-left">
+                                <th class="py-2 px-2 w-12 text-center">No</th>
+                                <th class="py-2 px-2">Jenis Cek Layanan</th>
+                                <th class="py-2 px-2 text-right text-gray-500">Harga Normal</th>
+                                <th class="py-2 px-2 text-right">Harga Promo</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="border-b border-gray-300">
+                                <td class="py-2 px-2 text-center">1</td>
+                                <td class="py-2 px-2">Desain Carousel IG (5–10 slide)</td>
+                                <td class="py-2 px-2 text-right line-through text-gray-500">Rp 200.000</td>
+                                <td class="py-2 px-2 text-right font-bold text-lg">Rp 100.000</td>
+                            </tr>
+                            <tr class="border-b border-gray-300">
+                                <td class="py-2 px-2 text-center">2</td>
+                                <td class="py-2 px-2">Desain Poster / Flyer</td>
+                                <td class="py-2 px-2 text-right line-through text-gray-500">Rp 120.000</td>
+                                <td class="py-2 px-2 text-right font-bold text-lg">Rp 60.000</td>
+                            </tr>
+                            <tr class="border-b border-gray-300">
+                                <td class="py-2 px-2 text-center">3</td>
+                                <td class="py-2 px-2">Template Feed / Story (3 template)</td>
+                                <td class="py-2 px-2 text-right line-through text-gray-500">Rp 180.000</td>
+                                <td class="py-2 px-2 text-right font-bold text-lg">Rp 90.000</td>
+                            </tr>
+                            <tr class="border-b border-gray-300">
+                                <td class="py-2 px-2 text-center">4</td>
+                                <td class="py-2 px-2">Paket 6 Template Feed / Story</td>
+                                <td class="py-2 px-2 text-right line-through text-gray-500">Rp 300.000</td>
+                                <td class="py-2 px-2 text-right font-bold text-lg">Rp 150.000</td>
+                            </tr>
+                            <tr class="border-b border-gray-300">
+                                <td class="py-2 px-2 text-center">5</td>
+                                <td class="py-2 px-2">Paket 10 Template Feed / Story</td>
+                                <td class="py-2 px-2 text-right line-through text-gray-500">Rp 500.000</td>
+                                <td class="py-2 px-2 text-right font-bold text-lg">Rp 250.000</td>
+                            </tr>
+                            <tr class="border-b border-gray-300">
+                                <td class="py-2 px-2 text-center">6</td>
+                                <td class="py-2 px-2">Logo Sederhana</td>
+                                <td class="py-2 px-2 text-right line-through text-gray-500">Rp 300.000</td>
+                                <td class="py-2 px-2 text-right font-bold text-lg">Rp 150.000</td>
+                            </tr>
+                            <tr class="border-b border-gray-300">
+                                <td class="py-2 px-2 text-center">7</td>
+                                <td class="py-2 px-2">Mini Brand Kit</td>
+                                <td class="py-2 px-2 text-right line-through text-gray-500">Rp 800.000</td>
+                                <td class="py-2 px-2 text-right font-bold text-lg">Rp 400.000</td>
+                            </tr>
+                            <tr class="border-b border-gray-300">
+                                <td class="py-2 px-2 text-center">8</td>
+                                <td class="py-2 px-2">Desain Presentasi (10 slide)</td>
+                                <td class="py-2 px-2 text-right line-through text-gray-500">Rp 250.000</td>
+                                <td class="py-2 px-2 text-right font-bold text-lg">Rp 125.000</td>
+                            </tr>
+                            <tr class="border-b border-gray-300">
+                                <td class="py-2 px-2 text-center">9</td>
+                                <td class="py-2 px-2">Carousel + Copywriting</td>
+                                <td class="py-2 px-2 text-right line-through text-gray-500">Rp 400.000</td>
+                                <td class="py-2 px-2 text-right font-bold text-lg">Rp 200.000</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <h3 class="font-bold text-lg mb-3 mt-8 uppercase bg-gray-100 py-1 px-2 border-l-4 border-black">B. Paket Langganan (Lebih Cuan)</h3>
+                    <table class="w-full text-sm border-collapse mb-6">
+                        <thead>
+                            <tr class="border-b-2 border-black text-left">
+                                <th class="py-2 px-2">Nama Paket</th>
+                                <th class="py-2 px-2">Cocok Untuk</th>
+                                <th class="py-2 px-2 text-right text-gray-500">Harga Normal</th>
+                                <th class="py-2 px-2 text-right">Harga Promo</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="border-b border-gray-300">
+                                <td class="py-2 px-2 font-bold">Paket 4 Carousel / Bulan</td>
+                                <td class="py-2 px-2 text-gray-600">Update konten mingguan</td>
+                                <td class="py-2 px-2 text-right line-through text-gray-500">Rp 600.000</td>
+                                <td class="py-2 px-2 text-right font-bold text-lg">Rp 300.000</td>
+                            </tr>
+                            <tr class="border-b border-gray-300">
+                                <td class="py-2 px-2 font-bold">Paket 8 Carousel / Bulan</td>
+                                <td class="py-2 px-2 text-gray-600">Brand yang sedang growing</td>
+                                <td class="py-2 px-2 text-right line-through text-gray-500">Rp 1.200.000</td>
+                                <td class="py-2 px-2 text-right font-bold text-lg">Rp 600.000</td>
+                            </tr>
+                            <tr class="border-b border-gray-300">
+                                <td class="py-2 px-2 font-bold">Paket 12 Carousel / Bulan</td>
+                                <td class="py-2 px-2 text-gray-600">Dominasi timeline audiens</td>
+                                <td class="py-2 px-2 text-right line-through text-gray-500">Rp 1.800.000</td>
+                                <td class="py-2 px-2 text-right font-bold text-lg">Rp 900.000</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="mt-8 border-t-2 border-black pt-4">
+                    <h3 class="font-bold text-sm uppercase mb-2">Bonus Tambahan (Khusus Paket Bulanan):</h3>
+                    <ul class="list-disc pl-5 text-sm text-gray-800 space-y-1 mb-6">
+                        <li>Gratis Resize Story untuk setiap desain feed/carousel</li>
+                        <li>Revisi minor sepuasnya (selama tidak merombak konsep awal)</li>
+                        <li>Free konsultasi visual branding via WhatsApp/Zoom</li>
+                    </ul>
+                    
+                    <div class="bg-gray-100 p-4 rounded text-center border border-gray-300">
+                        <p class="font-bold text-lg">Dokumen ini merupakan penawaran resmi yang valid.</p>
+                        <p class="text-sm mt-1 text-gray-600">Silakan hubungi melalui DM di IG <b>@fauziahmad.23</b> atau WhatsApp <b>0821-3385-9622</b> untuk memulai proyek.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="max-w-7xl mx-auto py-12 mt-8 border-t border-white/10 text-center text-sm opacity-60 flex flex-col md:flex-row justify-between items-center gap-4">
+        <p>&copy; 2026 Ahmad Fauzi. Dibuat dengan presisi.</p>
+        <div class="flex gap-6">
+            <a href="https://www.instagram.com/fauziahmad.23/" target="_blank" class="hover:text-pink-400 transition">Instagram</a>
+            <a href="https://www.linkedin.com/in/ahmadfauzi23/" target="_blank" class="hover:text-blue-400 transition">LinkedIn</a>
+        </div>
+    </footer>
+
+    <script>
+        // Theme Toggle Logic
+        function toggleTheme() {
+            document.documentElement.classList.toggle('dark');
+            const isDark = document.documentElement.classList.contains('dark');
+            localStorage.setItem('theme', isDark ? 'dark' : 'light');
+            updateThemeIcons(isDark);
+        }
+
+        function updateThemeIcons(isDark) {
+            const moon = document.querySelector('.dark-icon');
+            const sun = document.querySelector('.light-icon');
+            if (isDark) {
+                moon.classList.add('hidden');
+                sun.classList.remove('hidden');
+            } else {
+                sun.classList.add('hidden');
+                moon.classList.remove('hidden');
+            }
+        }
+
+        // Initialize Theme
+        const savedTheme = localStorage.getItem('theme') || 'dark'; // Default dark
+        if (savedTheme === 'dark') {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark');
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            updateThemeIcons(document.documentElement.classList.contains('dark'));
+        });
+
+        // Language Toggle Logic
+        const translations = {
+            id: {
+                nav_home: "Home",
+                nav_about: "About",
+                nav_works: "Works",
+                nav_services: "Services",
+                nav_cta: "Ngobrol Yuk",
+                hero_tag: "Spesialis Carousel Instagram",
+                hero_title: "Bikin Ide Kamu Jadi <span class='gradient-text'>Konten Visual</span> yang Kece Maksimal.",
+                hero_desc: "Spesialis desain carousel IG yang gabungin estetika modern sama strategi yang cuan. Bikin konten kamu stand out!",
+                hero_btn_portfolio: "Liat Portfolio",
+                hero_btn_services: "Cek Layanan"
+                // Tambahkan terjemahan untuk bagian lain disini...
+            },
+            en: {
+                nav_home: "Home",
+                nav_about: "About",
+                nav_works: "Works",
+                nav_services: "Services",
+                nav_cta: "Let's Talk",
+                hero_tag: "Instagram Carousel Specialist",
+                hero_title: "Turn Your Ideas Into <span class='gradient-text'>Visual Content</span> That Rocks.",
+                hero_desc: "IG carousel design specialist combining modern aesthetics with profitable strategies. Make your content stand out!",
+                hero_btn_portfolio: "View Portfolio",
+                hero_btn_services: "Check Services"
+            }
+        };
+
+        let currentLang = localStorage.getItem('lang') || 'id';
+
+        function toggleLanguage() {
+            currentLang = currentLang === 'id' ? 'en' : 'id';
+            localStorage.setItem('lang', currentLang);
+            updateLanguage();
+        }
+
+        function updateLanguage() {
+            const toggleBtn = document.getElementById('lang-toggle');
+            if(toggleBtn) toggleBtn.innerText = currentLang.toUpperCase();
+
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (translations[currentLang] && translations[currentLang][key]) {
+                    el.innerHTML = translations[currentLang][key];
+                }
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            updateLanguage();
+        });
+    </script>
+</body>
+</html>
